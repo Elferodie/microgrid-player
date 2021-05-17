@@ -9,10 +9,6 @@ import os
 
 prices = 100*np.random.rand(48)
 
-#scenario_data = 40+60*np.random.rand(48)
-data = pd.read_csv(os.path.join(os.getcwd(),"indus_cons_scenarios.csv"),sep=";",decimal=".")
-scenario_data = np.array(data["cons (kW)"])
-
 class Player:
     
     def __init__(self):
@@ -26,10 +22,14 @@ class Player:
         self.delta_t = 0.5
 
     def set_scenario(self, scenario_data):
+        #scenario_data = 40+60*np.random.rand(48)
+        data = pd.read_csv(os.path.join(os.getcwd(),"indus_cons_scenarios.csv"),sep=";",decimal=".")
+        scenario_data = np.array(data["cons (kW)"])
         self.data = scenario_data
         
         
     def set_prices(self, prices):
+        prices = 100*np.random.rand(48)
         self.prices = prices
         
 
